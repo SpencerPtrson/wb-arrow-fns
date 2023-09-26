@@ -135,10 +135,7 @@ const canDrink = (age, callback1, callback2) => {
 
 const add = (num1, num2) => num1 + num2;
 const multiply = (num1, num2) => num1 * num2;
-const math = (num1, num2, operator) => {
-  if (operator === '+') return add(num1, num2)
-  if (operator === '*') return multiply(num1, num2)
-}
+const math = (num1, num2, operatorCB) => operatorCB(num1, num2);
 
 
 ////////// PROBLEM 9 //////////
@@ -185,7 +182,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation ; //  = populations.reduce(/* Provide Your Callback Here */)
+let totalPopulation = populations.reduce((totalPopulation, currentValue) => totalPopulation + currentValue); //  = populations.reduce(/* Provide Your Callback Here */)
 
 ////////// PROBLEM 12 //////////
 
@@ -227,7 +224,7 @@ const monstersInYourPocket = [
 */
 
 //Code Here
-let myStrongest; // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter(x => x.CP > 200); // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
 
 /// /////// PROBLEM 13 //////////
 
@@ -243,4 +240,10 @@ let myStrongest; // = monstersInYourPocket.filter(/* Provide Your Callback Here 
 //
 // Make sure to use arrow functions combined with the map method.
 
-// REPLACE THIS WITH YOUR CODE
+const getAges = (array) => {
+  console.log(array)
+  return array.map(element => {
+    console.log("Person Age: ", element.age)
+    return element.age
+  })
+}
